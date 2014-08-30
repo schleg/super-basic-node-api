@@ -1,0 +1,33 @@
+{
+  "name": "super-basic-node-api",
+  "version": "0.0.1",
+  "description": "A super basic node API built on express and mongo.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.6.6",
+    "chai": "~1.9.1",
+    "express": "4.8.7",
+    "lodash": "2.4.1",
+    "mongoose": "3.8.15",
+    "supertest": "~0.13.0",
+    "nconf": "0.6.9"
+  },
+  "devDependencies": {
+    "mocha": "1.21.4",
+    "supertest": "0.13.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/schleg/super-basic-node-api.git"
+  },
+  "author": "schleg@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schleg/super-basic-node-api/issues"
+  },
+  "homepage": "https://github.com/schleg/super-basic-node-api"
+}
