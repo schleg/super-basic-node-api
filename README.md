@@ -7,7 +7,7 @@ Implements a generic REST API for a "Model" with these endpoints:
 - GET /api/models
 - GET /api/models/:model_id
 - POST /api/models
-- PIT /api/models/:model_id
+- PUT /api/models/:model_id
 - DELETE api/models/:model_id
 
 ## Install
