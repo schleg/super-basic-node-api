@@ -11,6 +11,6 @@ app.use('/api', require('./app/routers'));
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'));
-console.log("Starting server on port %s", app.get('port'));
+console.log("Starting (%s) server on port %s", process.env.NODE_ENV || 'production', app.get('port'));
 
 module.exports = app;

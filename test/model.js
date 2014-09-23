@@ -28,8 +28,8 @@ describe('Model API', function () {
         .send({
           name: 'Else'
         })
-        .expect(200)
         .end(function (err, res) {
+          assert.equal(res.status, 201);
           var result = JSON.parse(res.text);
           assert.equal('Else', result.name);
           done();
@@ -41,8 +41,8 @@ describe('Model API', function () {
     it('should return an array of models', function (done) {
       request(app)
         .get('/api/models')
-        .expect(200)
         .end(function (err, res) {
+          assert.equal(res.status, 200);
           var result = JSON.parse(res.text);
           assert.equal(true, result.length > 0);
           done();
@@ -54,8 +54,8 @@ describe('Model API', function () {
     it('should return a single model', function (done) {
       request(app)
         .get('/api/models/' + id)
-        .expect(200)
         .end(function (err, res) {
+          assert.equal(res.status, 200);
           var result = JSON.parse(res.text);
           assert.equal(true, result !== null);
           done();

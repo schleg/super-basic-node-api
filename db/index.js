@@ -1,7 +1,9 @@
-var mongoose = require('mongoose'),
-  config = require('../config'),
-  connectionString = 'mongodb://localhost/models',
-  options = {};
+var mongoose = require('mongoose');
+
+var connectionString = 'mongodb://localhost/super-basic-node-api';
+if (process.env.NODE_ENV === 'test') {
+  connectionString = 'mongodb://localhost/super-basic-node-api-test';
+}
 
 options = {
   server: {
@@ -11,9 +13,9 @@ options = {
 };
 
 mongoose.connect(connectionString, options, function (err, res) {
+  var connectionMessage = 'MongoDB connection success';
   if (err) {
-    console.log('MongoDB connection failure: ' + connectionString + '. ' +
-      err);
-  } else
-    console.log('MongoDB connection success: ' + connectionString);
+    connectionMessage = 'MongoDB connection failure';
+  }
+  console.log(connectionMessage + ' (' + connectionString + ')');
 });
