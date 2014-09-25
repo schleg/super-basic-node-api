@@ -1,5 +1,5 @@
 var Mongoose = require('mongoose'),
-    Bcrypt = require('bcrypt-nodejs');
+  Bcrypt = require('bcrypt-nodejs');
 
 var UserSchema = new Mongoose.Schema({
   username: {
@@ -26,8 +26,8 @@ UserSchema.pre('save', function (callback) {
   });
 });
 
-UserSchema.methods.checkPassword = function(password, callback) {
-  Bcrypt.compare(password, this.password, function(err, matched) {
+UserSchema.methods.checkPassword = function (password, callback) {
+  Bcrypt.compare(password, this.password, function (err, matched) {
     if (err) return callback(err);
     callback(null, matched);
   });
