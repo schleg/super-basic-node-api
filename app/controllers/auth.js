@@ -7,9 +7,9 @@ passport.use(new BasicStrategy(
     User.findOne({ username: username }, function (err, user) {
       if (err) { return callback(err); }
       if (!user) { return callback(null, false); }
-      user.verifyPassword(password, function(err, isMatch) {
+      user.checkPassword(password, function(err, matched) {
         if (err) { return callback(err); }
-        if (!isMatch) { return callback(null, false); }
+        if (!matched) { return callback(null, false); }
         return callback(null, user);
       });
     });
