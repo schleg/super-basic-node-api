@@ -4,6 +4,7 @@
   "description": "A super basic node API built on express and mongo.",
   "main": "server.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.6.6",
     "chai": "~1.9.1",
     "coveralls": "~2.11.2",
@@ -12,10 +13,9 @@
     "mocha-lcov-reporter": "0.0.1",
     "mongoose": "3.8.15",
     "nconf": "0.6.9",
-    "supertest": "~0.13.0",
-    "bcrypt-nodejs": "0.0.3",
     "passport": "~0.2.1",
-    "express-session": "^1.8.2"
+    "passport-http": "^0.2.2",
+    "supertest": "~0.13.0"
   },
   "devDependencies": {
     "istanbul": "~0.3.2",

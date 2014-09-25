@@ -1,14 +1,20 @@
 var request = require('supertest'),
   assert = require('assert'),
   mongoose = require('mongoose'),
+  User = require('../app/models/user'),
   app = require('../server');
 
 describe('Model API', function () {
 
-  var id, model;
+  var id, model, user;
 
   model = {
     name: 'Someone'
+  };
+
+  user = {
+    username: 'frogger',
+    password: 'password'
   };
 
   beforeEach(function (done) {
@@ -16,6 +22,7 @@ describe('Model API', function () {
       mongoose.connection.collections['models'].insert(model, function (
         err, docs) {
         id = docs[0]._id;
+        (new User(user)).save(); 
         done();
       });
     });
@@ -25,6 +32,7 @@ describe('Model API', function () {
     it('should create a model', function (done) {
       request(app)
         .post('/api/models')
+        .auth(user.username, user.password)
         .send({
           name: 'Else'
         })
@@ -41,6 +49,7 @@ describe('Model API', function () {
     it('should return an array of models', function (done) {
       request(app)
         .get('/api/models')
+        .auth(user.username, user.password)
         .end(function (err, res) {
           assert.equal(res.status, 200);
           var result = JSON.parse(res.text);
@@ -54,6 +63,7 @@ describe('Model API', function () {
     it('should return a single model', function (done) {
       request(app)
         .get('/api/models/' + id)
+        .auth(user.username, user.password)
         .end(function (err, res) {
           assert.equal(res.status, 200);
           var result = JSON.parse(res.text);
@@ -67,6 +77,7 @@ describe('Model API', function () {
     it('should update a single model', function (done) {
       request(app)
         .put('/api/models/' + id)
+        .auth(user.username, user.password)
         .send({
           name: 'Else'
         })
@@ -78,6 +89,7 @@ describe('Model API', function () {
     it('should delete a single model', function (done) {
       request(app)
         .delete('/api/models/' + id)
+        .auth(user.username, user.password)
         .expect(204, done);
     });
   });
