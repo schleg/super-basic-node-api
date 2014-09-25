@@ -66,7 +66,9 @@ describe('User API', function () {
     it('should update a single user', function (done) {
       request(app)
         .put('/api/users/' + id)
-        .send({ username: 'something' })
+        .send({
+          username: 'something'
+        })
         .expect(204, done);
     });
   });

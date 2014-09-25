@@ -1,5 +1,5 @@
-var Mongoose = require('mongoose');
-var Schema = Mongoose.Schema;
+var Mongoose = require('mongoose'),
+  Schema = Mongoose.Schema;
 var ModelSchema = new Schema({
   name: String
 });

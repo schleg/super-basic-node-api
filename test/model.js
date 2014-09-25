@@ -22,7 +22,7 @@ describe('Model API', function () {
       mongoose.connection.collections['models'].insert(model, function (
         err, docs) {
         id = docs[0]._id;
-        (new User(user)).save(); 
+        (new User(user)).save();
         done();
       });
     });
